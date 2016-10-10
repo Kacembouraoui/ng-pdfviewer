@@ -108,6 +108,20 @@ directive('pdfviewer', [ '$parse', function($parse) {
 					$scope.renderPage($scope.pageNum);
 				}
 			});
+			$scope.$on('pdfviewer.zoomIn', function(evt, id, scale) {
+				if (id !== instance_id) {
+				    return;
+				}
+				$scope.scale=parseFloat($scope.scale) +  parseFloat(scale*0.001);
+				$scope.renderPage($scope.pageNum);
+		        });
+		        $scope.$on('pdfviewer.zoomOut', function(evt, id, scale) {
+				if (id !== instance_id) {
+				    return;
+				}
+				$scope.scale=parseFloat($scope.scale) -  parseFloat(scale*0.001);
+				$scope.renderPage($scope.pageNum);
+		         });
 		} ],
 		link: function(scope, iElement, iAttr) {
 			canvas = iElement.find('canvas')[0];
