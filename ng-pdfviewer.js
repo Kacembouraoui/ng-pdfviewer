@@ -160,7 +160,13 @@ service("PDFViewerService", [ '$rootScope', function($rootScope) {
 			},
 			gotoPage: function(page) {
 				$rootScope.$broadcast('pdfviewer.gotoPage', instance_id, page);
-			}
+			},
+			zoomIn:function(scale) {
+			        $rootScope.$broadcast('pdfviewer.zoomIn', instance_id,scale);
+			},
+			zoomOut:function(scale) {
+			       $rootScope.$broadcast('pdfviewer.zoomOut', instance_id,scale);
+		        }
 		};
 	};
 
