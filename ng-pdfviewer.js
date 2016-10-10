@@ -112,14 +112,14 @@ directive('pdfviewer', [ '$parse', function($parse) {
 				if (id !== instance_id) {
 				    return;
 				}
-				$scope.scale=parseFloat($scope.scale) +  parseFloat(scale*0.001);
+				$scope.scale=parseFloat($scope.scale) +  parseFloat(scale*0.01);
 				$scope.renderPage($scope.pageNum);
 		        });
 		        $scope.$on('pdfviewer.zoomOut', function(evt, id, scale) {
 				if (id !== instance_id) {
 				    return;
 				}
-				$scope.scale=parseFloat($scope.scale) -  parseFloat(scale*0.001);
+				$scope.scale=parseFloat($scope.scale) -  parseFloat(scale*0.01);
 				$scope.renderPage($scope.pageNum);
 		         });
 		} ],
